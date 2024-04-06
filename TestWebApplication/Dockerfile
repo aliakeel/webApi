@@ -15,7 +15,7 @@ RUN dotnet restore "TestWebApplication/TestWebApplication.csproj"
 COPY . .
 WORKDIR "/src/TestWebApplication"
 RUN dir
-RUN dotnet build "TestWebApplication.csproj" -c Release -o /app/build
+RUN dotnet build "./TestWebApplication.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "TestWebApplication.csproj" -c Release -o /app/publish /p:UseAppHost=false
