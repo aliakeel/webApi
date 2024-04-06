@@ -12,10 +12,10 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY . .
 RUN dir
-COPY ["TestWebApplication.csproj", "TestWebApplication/"]
+COPY [".", "TestWebApplication/"]
 RUN dotnet restore "TestWebApplication/TestWebApplication.csproj"
 #COPY . .
-#WORKDIR "/src/TestWebApplication"
+WORKDIR "/src/TestWebApplication"
 RUN dir
 RUN dotnet build "TestWebApplication.csproj" -c Release -o /app/build
 
