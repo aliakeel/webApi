@@ -34,12 +34,20 @@ pipeline {
             }
         }
         
-        stage('Docker') {
+        stage('build Docker') {
             steps {
                 script {
                     // make  sure we have a tag to use for docker image. If not, then fail the job
                     bat "docker build -t test-web-application-docker-published ./TestWebApplication"
 
+                }
+            }
+        }
+
+        stage('update container') {
+            steps {
+                script {
+                    // remove the container
                     bat "docker rm -f test-web-app-container"
 
                     // run container from saved image and check if it is running
