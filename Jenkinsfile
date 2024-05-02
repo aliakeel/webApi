@@ -20,7 +20,7 @@ pipeline {
                     //bat "cd ${DOTNET_CLI_HOME} && dotnet restore"
                     if(isUnix()){
                         //sh "echo 'P@ssw0rd@123456789' | sudo -u hadi -S chmod -R 777 ./"
-                        sh "echo 'P@ssw0rd@123456789' | sudo -u hadi -S dotnet restore"
+                        sh "sudo dotnet restore"
                     }else
                         bat "dotnet restore"
 
