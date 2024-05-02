@@ -20,7 +20,7 @@ pipeline {
                     //bat "cd ${DOTNET_CLI_HOME} && dotnet restore"
                     if(isUnix()){
                         sh "dotnet restore"
-                        sh "sudo chmod -R 777 ./"
+                        sh "echo docker | sudo -S chmod -R 777 ./"
                     }else
                         bat "dotnet restore"
 
