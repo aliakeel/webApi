@@ -19,8 +19,8 @@ pipeline {
                     // Restoring dependencies
                     //bat "cd ${DOTNET_CLI_HOME} && dotnet restore"
                     if(isUnix()){
-                        sh "echo 'Docker@123' | sudo -S chmod -R 777 ./"
-                        sh "echo 'Docker@123' | sudo dotnet restore"
+                        //sh "echo 'P@ssw0rd@123456789' | sudo -u hadi -S chmod -R 777 ./"
+                        sh "echo 'P@ssw0rd@123456789' | sudo -u hadi -S dotnet restore"
                     }else
                         bat "dotnet restore"
 
