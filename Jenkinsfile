@@ -18,9 +18,11 @@ pipeline {
                 script {
                     // Restoring dependencies
                     //bat "cd ${DOTNET_CLI_HOME} && dotnet restore"
-                    if(isUnix())
+                    if(isUnix()){
                         sh "dotnet restore"
-                    else bat "dotnet restore"
+                        sh "sudo chmod -R 777 ./"
+                    }else
+                        bat "dotnet restore"
 
                     // Building the application
                     if(isUnix())
